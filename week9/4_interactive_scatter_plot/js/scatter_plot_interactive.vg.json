@@ -14,7 +14,7 @@
         "input": "range",
         "min": 0,
         "max": 100000000,
-        "step": 1000000,
+        "step": 100000,
         "name": "Minimum Population: "
       }
     },
@@ -46,28 +46,21 @@
   ],
   "transform": [
     {"filter": "datum.Deaths > 0"},
-    {"filter": "datum.Population > Population_Above"},
-    {
-      "filter": "Continent_selection == null || datum.Continent == Continent_selection"
-    },
-    {
-      "calculate": "datum.Confirmed/datum.Population * 10000",
-      "as": "Cases per 10,000 Population"
-    }
+    {"filter": "datum.Population > Population_Above"}
   ],
   "encoding": {
     "x": {
-      "field": "Confirmed",
+      "field": "Expenditure",
       "type": "quantitative",
       "title": "Confirmed Cases",
       "axis": {"tickCount": 7},
       "scale": {"type": "log", "domain": [1, 10000000]}
     },
     "y": {
-      "field": "Deaths",
+      "field": "Investigated",
       "type": "quantitative",
-      "axis": {"tickCount": 6},
-      "scale": {"type": "log", "domain": [1, 1000000]}
+      "axis": {"tickCount": 2},
+      "scale": {"type": "linear", "domain": [1, 100]}
     }
   },
   "layer": [
@@ -109,14 +102,9 @@
         "opacity": {"value": 0.6},
         "tooltip": [
           {"field": "Country", "type": "nominal"},
-          {"field": "Confirmed", "type": "quantitative", "format": ","},
-          {"field": "Deaths", "type": "quantitative", "format": ","},
-          {"field": "Recovered", "type": "quantitative", "format": ","},
-          {
-            "field": "Cases per 10,000 Population",
-            "type": "quantitative",
-            "format": ".2f"
-          }
+          {"field": "Expenditure", "type": "quantitative", "format": ","},
+          {"field": "Sightings", "type": "quantitative", "format": ","},
+          {"field": "Investigated", "type": "quantitative", "format": ","}
         ]
       }
     },
@@ -141,14 +129,9 @@
         },
         "tooltip": [
           {"field": "Country", "type": "nominal"},
-          {"field": "Confirmed", "type": "quantitative", "format": ","},
-          {"field": "Deaths", "type": "quantitative", "format": ","},
-          {"field": "Recovered", "type": "quantitative", "format": ","},
-          {
-            "field": "Cases per 10,000 Population",
-            "type": "quantitative",
-            "format": ".2f"
-          }
+          {"field": "Expenditure", "type": "quantitative", "format": ","},
+          {"field": "Sightings", "type": "quantitative", "format": ","},
+          {"field": "Investigated", "type": "quantitative", "format": ","}
         ]
       }
     }
