@@ -4,14 +4,14 @@
   "width": 500,
   "title": "COVID-19 Cases per Country (13 Oct 2020)",
   "data": {
-    "url": "interactive_scatter_plot/data/COVID_19_10_Oct_2020.csv"
+    "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/4_interactive_scatter_plot/data/COVID_19_10_Oct_2020.csv"
   },
     "params": [
     {
       "name": "Population_Above",
 
       "value": 0,
-      "bind": {"input": "range", "min": 0, "max": 100000, "step": 100000}
+      "bind": {"input": "range", "min": 0, "max": 100000000, "step": 1000000}
     }
   ],
   "selection": {
@@ -20,25 +20,25 @@
     }
   },
   "transform":[
-    {"filter": "datum.Expenditure > 0"},
-    {"filter": "datum.Sightings > 0"},
-    {"filter": "datum.Investigated > 0"},
-    {"filter": "datum.Population > Population_Above"}
+    {"filter": "datum.Active > 0"},
+    {"filter": "datum.Deaths > 0"},
+    {"filter": "datum.Population > Population_Above"},
+    {"calculate": "datum.Confirmed/datum.Population", "as": "Cases per 10,000 Population"}
   ],
   "mark": "point",
   "encoding": {
     "x": {
-      "field": "Sightings",
+      "field": "Confirmed",
       "type": "quantitative",
-      "title":"UFO Sightings",
-      "axis": {"tickCount": 5},
-      "scale": {"type": "log",  "domain":[1, 100000]}
+      "title":"Confirmed Cases",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "log",  "domain":[1, 10000000]}
     },
     "y": {
-      "field": "Investigated",
+      "field": "Deaths",
       "type": "quantitative",
-      "axis": { "tickCount": 2},
-      "scale": {"type": "log", "domain":[1, 100]}
+      "axis": { "tickCount": 6},
+      "scale": {"type": "log", "domain":[1, 1000000]}
     },
     "size": {"field": "Population", "type": "quantitative",  "scale": {"range": [30, 500]}
 },
@@ -51,9 +51,10 @@
     },
     "tooltip": [
       {"field": "Country", "type": "nominal"},
-      {"field": "Expenditure", "type": "quantitative", "format": ","},
-      {"field": "Sightings", "type": "quantitative", "format": ","},
-      {"field": "Investigated", "type": "quantitative", "format": ","}
+      {"field": "Confirmed", "type": "quantitative", "format": ","},
+      {"field": "Active", "type": "quantitative", "format": ","},
+      {"field": "Deaths", "type": "quantitative", "format": ","},
+      {"field": "Recovered", "type": "quantitative", "format": ","}
     ]
 
   }
