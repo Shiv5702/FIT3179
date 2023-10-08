@@ -11,7 +11,7 @@ body {
 }
 
 .page {
-  width: 850px;
+  width: 1000px;
   background-color: white;
   margin: auto;
   padding: 50px;
@@ -20,6 +20,10 @@ body {
 
 .vis-container {
   width: 100%;
+}
+
+.vis-container2 {
+  width: 40%;
 }
 
 .description h2,
@@ -37,6 +41,10 @@ h1 {
 
 .pure-g {
   margin-bottom: 40px;
+}
+
+.pure-u {
+  margin-bottom: 0px;
 }
 
 .small-font {

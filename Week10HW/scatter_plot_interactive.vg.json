@@ -48,7 +48,10 @@
     {"filter": "datum.Sightings > 0"},
     {"filter": "datum.Investigated > 0"},
     {"filter": "datum.Expenditure > 10"},
-    {"filter": "datum.Population > Population_Above"}
+    {"filter": "datum.Population > Population_Above"},
+    {
+      "filter": "Continent_selection == null || datum.Continent == Continent_selection"
+    }
   ],
   "encoding": {
     "x": {
@@ -125,7 +128,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country'] == 'China' || datum['Country'] == 'India' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Italy' || datum['Country'] == 'Yemen' ||  datum['Country'] == 'United States'",
+            "test": "datum['Country'] == 'China' || datum['Country'] == 'Ethiopia' || datum['Country'] == 'India' || datum['Country'] == 'Singapore' || datum['Country'] == 'Australia' || datum['Country'] == 'New Zealand' || datum['Country'] == 'Italy' || datum['Country'] == 'Yemen' ||  datum['Country'] == 'United States'",
             "value": 1
           },
           "value": 0
