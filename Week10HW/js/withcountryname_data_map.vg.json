@@ -39,7 +39,7 @@
             "lookup": "properties.NAME",
             "from": {
               "data": {
-                "url": "https://raw.githubusercontent.com/Shiv5702/FIT3179/main/data/output_file.csv"
+                "url": "https://raw.githubusercontent.com/Shiv5702/FIT3179/main/Week10HW/data/output_file.csv"
               },
               "key": "country",
               "fields": ["country", "total_sightings"]
