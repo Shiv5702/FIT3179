@@ -7,7 +7,7 @@
   "data": {"url": "https://raw.githubusercontent.com/Shiv5702/FIT3179/main/Assignment2/data/shapes.csv"},
   "transform": [
     {
-      "calculate": "{'Circle': '⭕', 'Triangle': '📐', 'Cigar': '🚬', 'Rectangle': '⏹️', 'Egg': '🥚', 'Diamond': '💎', 'Disc': '🥏 ', 'Fireball': '🔥', 'Other shapes': '👽'}[datum.Shape]",
+      "calculate": "{'Circle': '⭕', 'Triangle': '📐', 'Cigar': '🚬', 'Rectangle': '⏹️', 'Egg': '🥚', 'Diamond': '💎', 'Disc': '🥏', 'Fireball': '🔥', 'Other shapes': '👽'}[datum.Shape]",
       "as": "emoji"
     }
   ],
