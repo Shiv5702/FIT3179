@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {"view": {"stroke": ""}},
+  "width": 800,
+  "height": 200,
+  "title": "UFO Shapes seen in the past decade (Since 1 Jan 2012)",
+  "data": {"url": "data/shapes.csv"},
+  "transform": [
+    {
+      "calculate": "{'Circle': '⭕', 'Triangle': '📐', 'Cigar': '🚬', 'Rectangle': '⏹️', 'Egg': '🥚', 'Diamond': '💎', 'Disc': '🥏 ', 'Fireball': '🔥', 'Other shapes': '👽'}[datum.Shape]",
+      "as": "emoji"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar"},
+      "encoding": {
+        "x": {"field": "Sightings", "type": "quantitative"},
+        "y": {"field": "Shape", "type": "ordinal"},
+        "color": {"field": "Confidence", "type": "quantitative", "scale": {"scheme": "bluegreen"}},
+        "tooltip": [ 
+          {"field": "Shape", "title": "Shape"},
+          {"field": "Sightings", "title": "Sightings"},
+          {"field": "Confidence", "title": "Confidence"}
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "baseline": "middle"},
+      "encoding": {
+        "x": {"field": "Sightings", "type": "quantitative"},
+        "y": {"field": "Shape", "type": "ordinal"},
+        "text": {"field": "emoji", "type": "nominal"},
+        "size": {"value": 15}
+      }
+    }
+  ]
+}
