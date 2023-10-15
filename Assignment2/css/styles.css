@@ -10,6 +10,10 @@ body {
   background-color: lightgray;
 }
 
+.centered-text {
+  text-align: center;
+}
+
 .page {
   width: 1000px;
   background-color: white;
@@ -24,6 +28,12 @@ body {
 
 .vis-container2 {
   width: 40%;
+}
+
+.vis-container4 {
+  width: 40%; 
+  float: left; 
+  margin-right: 20px; 
 }
 
 .description h2,
