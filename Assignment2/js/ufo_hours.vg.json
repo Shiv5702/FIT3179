@@ -30,6 +30,9 @@
       "field": "Sightings",
       "type": "quantitative"
     },
+    "color": {
+      "value": "#1f77b4"
+    },
     "tooltip": [
       {"field": "time_12_hour_format", "type": "nominal", "title": "Time (12-hour format)"},
       {"field": "Sightings", "type": "quantitative", "title": "Sightings"}
