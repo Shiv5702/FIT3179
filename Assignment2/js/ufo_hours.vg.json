@@ -3,7 +3,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/Shiv5702/FIT3179/main/Assignment2/data/ufo_hours.csv"
   },
-  "title": "UFO sightings count in 24 hours in 2021",
+  "title": "USA's UFO sightings in 24 hours",
   "transform": [
     {
       "calculate": "datum.Hour < 12 ? 'AM' : 'PM'",
