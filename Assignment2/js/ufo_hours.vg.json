@@ -1,7 +1,9 @@
 {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
     "url": "https://raw.githubusercontent.com/Shiv5702/FIT3179/main/Assignment2/data/ufo_hours.csv"
   },
+  "title": "UFO sightings count in 24 horus in 2021",
   "transform": [
     {
       "calculate": "datum.Hour < 12 ? 'AM' : 'PM'",
