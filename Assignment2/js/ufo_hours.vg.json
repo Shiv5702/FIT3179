@@ -8,11 +8,11 @@
       "as": "hour_text"
     },
     {
-      "calculate": "datum.Hour < 12 ? ' am' : ' pm'",
+      "calculate": "datum.Hour < 12 ? 'am' : 'pm'",
       "as": "ampm"
     },
     {
-      "calculate": "datum.Hour === 0 ? '12' + datum.ampm : datum.hour_text + datum.ampm",
+      "calculate": "datum.hour_text + datum.ampm",
       "as": "hour12"
     }
   ],
