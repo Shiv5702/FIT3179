@@ -4,32 +4,32 @@
   },
   "transform": [
     {
-      "calculate": "datum.Hour === 0 ? '12' : (datum.Hour > 12 ? toString(datum.Hour - 12) : toString(datum.Hour))",
-      "as": "hour_text"
+      "calculate": "datum.Hour < 12 ? 'AM' : 'PM'",
+      "as": "am_pm"
     },
     {
-      "calculate": "datum.Hour === 0 ? 'pm' : (datum.Hour < 12 ? 'am' : 'pm')",
-      "as": "ampm"
+      "calculate": "datum.Hour % 12 === 0 ? 12 : datum.Hour % 12",
+      "as": "hour_12"
     },
     {
-      "calculate": "datum.hour_text + datum.ampm",
-      "as": "hour12"
+      "calculate": "datum.hour_12 + datum.am_pm",
+      "as": "time_12_hour_format"
     }
   ],
   "mark": "bar",
   "encoding": {
     "x": {
-      "field": "hour12",
-      "type": "nominal",  
-      "scale": {"type": "band"},  
-      "axis": {"labelAngle": 0} 
+      "field": "Hour",
+      "type": "quantitative",
+      "scale": {"type": "linear", "domain": [0, 23]},
+      "axis": {"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}
     },
     "y": {
       "field": "Sightings",
       "type": "quantitative"
     },
     "tooltip": [
-      {"field": "hour12", "type": "nominal", "title": "Hour (12-hour format)"},
+      {"field": "time_12_hour_format", "type": "nominal", "title": "Time (12-hour format)"},
       {"field": "Sightings", "type": "quantitative", "title": "Sightings"}
     ]
   }
